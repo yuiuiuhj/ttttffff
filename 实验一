@@ -1,0 +1,23 @@
+#include <iostream> using namespace std;
+int array[] = {1, -2, 3, 10, -4, 7, 2, -5}; //int array[] = {-10, -1, -2, -3, -4, -5};
+const int size = sizeof array / sizeof *array;
+
+int maxSubArray(int *array, int size) {
+int max = -(1 << 31); int sum = 0;
+int index = 0;
+
+while (index < size)
+{
+sum += array[index];
+if (sum > max) {
+max = sum;
+cout << "max: " << max << endl; }
+if (sum < 0) sum = 0; index++;
+}
+
+return max; }
+
+int main()
+{
+int index = maxSubArray(array, size);
+cout << "index: " << index << endl; }
